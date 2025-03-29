@@ -17,7 +17,7 @@ int actions_new(const params &params, const conf_file &conf)
 	std::ofstream f;
 	int i;
 
-	notes_get_all(&notes);
+	notes_get_all(conf.notes_dir, &notes);
 
 	for (i = 0; i < notes.size(); ++i) {
 		if (notes[i].name == params.note_name) {
@@ -26,7 +26,7 @@ int actions_new(const params &params, const conf_file &conf)
 		}
 	}
 
-	path = "/home/wolfiwolf/.ternotes/notes/" + params.note_name + ".txt";
+	path = conf.notes_dir + "/" + params.note_name + ".txt";
 
 	f.open(path);
 	if (!f.is_open()) {

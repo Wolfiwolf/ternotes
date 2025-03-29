@@ -15,7 +15,7 @@ int actions_cat(const params &params, const conf_file &conf)
 	std::ifstream f;
 	int snote;
 
-	notes_get_all(&notes);
+	notes_get_all(conf.notes_dir, &notes);
 
 	snote = params.note;
 	if ((unsigned int)snote >= notes.size()) {
@@ -23,7 +23,7 @@ int actions_cat(const params &params, const conf_file &conf)
 		return -1;
 	}
 
-	f.open("/home/wolfiwolf/.ternotes/notes/" + notes[snote].name + ".txt");
+	f.open(conf.notes_dir + "/" + notes[snote].name + ".txt");
 
 	if (!f.is_open()) {
 		LOGE("Notes directory does not exist!");

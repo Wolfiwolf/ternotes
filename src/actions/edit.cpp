@@ -17,7 +17,7 @@ int actions_edit(const params &params, const conf_file &conf)
 	std::ifstream f;
 	int snote;
 
-	notes_get_all(&notes);
+	notes_get_all(conf.notes_dir, &notes);
 
 	snote = params.note;
 	if ((unsigned int)snote >= notes.size()) {
@@ -25,7 +25,7 @@ int actions_edit(const params &params, const conf_file &conf)
 		return -1;
 	}
 
-	path = "/home/wolfiwolf/.ternotes/notes/" + notes[snote].name + ".txt";
+	path = conf.notes_dir + "/" + notes[snote].name + ".txt";
 
 	f.open(path);
 	if (!f.is_open()) {

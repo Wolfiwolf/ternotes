@@ -14,6 +14,8 @@ static void _parse_key_val(conf_file *cf, const std::string &key,
 {
 	if (key == "EDITOR_CMD")
 		cf->editor_cmd = val;
+	else if (key == "NOTES_DIR")
+		cf->notes_dir = val;
 }
 
 int conf_file_load(conf_file *cf)

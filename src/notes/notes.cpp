@@ -6,9 +6,9 @@
 namespace tn
 {
 
-int notes_get_all(std::vector<note> *notes)
+int notes_get_all(const std::string &notes_dir, std::vector<note> *notes)
 {
-	std::string path = "/home/wolfiwolf/.ternotes/notes";
+	std::string path = notes_dir;
 
 	notes->clear();
 

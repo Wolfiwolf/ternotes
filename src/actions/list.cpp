@@ -12,7 +12,7 @@ int actions_list(const params &params, const conf_file &conf)
 	std::vector<note> notes;
 	int i;
 
-	notes_get_all(&notes);
+	notes_get_all(conf.notes_dir, &notes);
 
 	if (notes.size() == 0) {
 		std::cout << "No notes.\n";
