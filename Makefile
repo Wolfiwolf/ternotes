@@ -11,7 +11,7 @@ $(TARGET): $(SOURCES) $(INCLUDES)
 
 install: $(TARGET)
 	echo "Installing Terminal Notes"
-	@mkdir -p /home/wolfiwolf/.ternotes/notes
+	@mkdir -p /home/$(USER)/.ternotes/notes
 	@sudo mkdir -p /etc/ternotes
 	@sudo cp defconfig.txt /etc/ternotes/config.txt
 	@sudo mv $(BLD_DIR)/$(TARGET) /usr/bin
