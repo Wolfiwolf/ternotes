@@ -11,7 +11,8 @@ enum class params_action {
 	CAT,
 	EDIT,
 	NEW,
-	DELETE
+	DELETE,
+	HELP,
 };
 
 struct params {

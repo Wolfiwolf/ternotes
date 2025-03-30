@@ -79,6 +79,11 @@ int params_parse(int argc, char *argv[], params *p)
 		return 0;
 	}
 
+	if (action == "h") {
+		p->action = params_action::HELP;
+		return 0;
+	}
+
 	if (argc == 2) {
 		int note = _parse_num(argv[1]);
 
