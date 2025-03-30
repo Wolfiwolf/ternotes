@@ -1,8 +1,0 @@
-# Settings format:
-# key: value
-#
-# Only 1 space should be between ':' and value and
-# no spaces after value (I'm lazy with parsing -_O_-)
-
-EDITOR_CMD: nvim
-NOTES_DIR: /home/wolfiwolf/.ternotes/notes
