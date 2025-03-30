@@ -16,19 +16,6 @@ static int _parse_num(std::string num)
 	}
 }
 
-static int _parse_cat(int argc, char *argv[], params *p)
-{
-	p->action = params_action::CAT;
-
-	p->note = _parse_num(argv[2]);
-	if (p->note < 0) {
-		LOGE("Note index " << argv[2] << "' is invalid!");
-		return -1;
-	}
-
-	return 0;
-}
-
 static int _parse_edit(int argc, char *argv[], params *p)
 {
 	p->action = params_action::EDIT;
@@ -67,6 +54,7 @@ int params_parse(int argc, char *argv[], params *p)
 {
 	std::string action;
 
+	/* Command: nts */
 	if (argc == 1) {
 		p->action = params_action::LIST;
 		return 0;
@@ -74,16 +62,13 @@ int params_parse(int argc, char *argv[], params *p)
 
 	action = argv[1];
 
-	if (action == "l") {
-		p->action = params_action::LIST;
-		return 0;
-	}
-
+	/* Command: nts h */
 	if (action == "h") {
 		p->action = params_action::HELP;
 		return 0;
 	}
 
+	/* Command: nts <note_id> */
 	if (argc == 2) {
 		int note = _parse_num(argv[1]);
 
@@ -99,8 +84,6 @@ int params_parse(int argc, char *argv[], params *p)
 		return -1;
 	}
 
-	if (action == "c")
-		return _parse_cat(argc, argv, p);
 	else if (action == "e")
 		return _parse_edit(argc, argv, p);
 	else if (action == "n")
