@@ -13,6 +13,7 @@ enum class params_action {
 	NEW,
 	DELETE,
 	HELP,
+	YANK,
 };
 
 struct params {

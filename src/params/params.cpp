@@ -50,6 +50,19 @@ static int _parse_delete(int argc, char *argv[], params *p)
 	return 0;
 }
 
+static int _parse_yank(int argc, char *argv[], params *p)
+{
+	p->action = params_action::YANK;
+	try {
+		p->note = std::stoi(argv[2]);
+	} catch (const std::exception &e) {
+		LOGE("Note index " << argv[2] << "' is invalid!");
+		return -1;
+	}
+
+	return 0;
+}
+
 int params_parse(int argc, char *argv[], params *p)
 {
 	std::string action;
@@ -90,6 +103,8 @@ int params_parse(int argc, char *argv[], params *p)
 		return _parse_new(argc, argv, p);
 	else if (action == "d")
 		return _parse_delete(argc, argv, p);
+	else if (action == "y")
+		return _parse_yank(argc, argv, p);
 	else
 		return -1;
 

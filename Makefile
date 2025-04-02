@@ -7,7 +7,7 @@ INCLUDES = $(shell find src -name "*.hpp")
 
 $(TARGET): $(SOURCES) $(INCLUDES)
 	@mkdir -p $(BLD_DIR)
-	g++ -o $(BLD_DIR)/$@ $(SOURCES) -I src
+	g++ -o $(BLD_DIR)/$@ $(SOURCES) -I src -lncurses
 
 install: $(TARGET)
 	@echo ""

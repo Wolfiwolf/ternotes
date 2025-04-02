@@ -28,6 +28,8 @@ int main(int argc, char *argv[])
 		return tn::actions_delete(params, conf);
 	case tn::params_action::HELP:
 		return tn::actions_help(params, conf);
+	case tn::params_action::YANK:
+		return tn::actions_yank(params, conf);
 	case tn::params_action::NONE:
 	default:
 		LOGE("Invalid action!");

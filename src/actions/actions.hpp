@@ -18,4 +18,6 @@ int actions_delete(const params &params, const conf_file &conf);
 
 int actions_help(const params &params, const conf_file &conf);
 
+int actions_yank(const params &params, const conf_file &conf);
+
 } // namespace tn
