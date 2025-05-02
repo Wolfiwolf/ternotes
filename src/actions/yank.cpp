@@ -131,7 +131,7 @@ static void _save_to_clipboard(const std::string &line)
 
 	filt_line = line.substr(0, line.size());
 
-	command = "echo -n \"" + filt_line + "\" | xclip -selection clipboard";
+	command = "echo -n '" + filt_line + "' | xclip -selection clipboard";
 
 	// Execute the command
 	system(command.c_str());
