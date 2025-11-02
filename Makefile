@@ -2,12 +2,21 @@ TARGET = nts
 
 BLD_DIR = build
 
+VERSION_MAJOR = 0
+VERSION_MINOR = 0
+VERSION_PATCH = 0
+
 SOURCES = $(shell find src -name "*.cpp")
 INCLUDES = $(shell find src -name "*.hpp")
 
+DEFINES = \
+	  -DVERSION_MAJOR=$(VERSION_MAJOR) \
+	  -DVERSION_MINOR=$(VERSION_MINOR) \
+	  -DVERSION_PATCH=$(VERSION_PATCH)
+
 $(TARGET): $(SOURCES) $(INCLUDES)
 	@mkdir -p $(BLD_DIR)
-	g++ -o $(BLD_DIR)/$@ $(SOURCES) -I src -lncurses
+	g++ -o $(BLD_DIR)/$@ $(SOURCES) $(DEFINES) -I src -lncurses
 
 install: $(TARGET)
 	@echo ""
