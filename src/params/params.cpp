@@ -81,6 +81,12 @@ int params_parse(int argc, char *argv[], params *p)
 		return 0;
 	}
 
+	/* Command: nts v */
+	if (action == "v") {
+		p->action = params_action::VERSION;
+		return 0;
+	}
+
 	/* Command: nts <note_id> */
 	if (argc == 2) {
 		int note = _parse_num(argv[1]);

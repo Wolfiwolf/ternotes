@@ -18,6 +18,7 @@ int actions_help(const params &params, const conf_file &conf)
 	std::cout << "New note:     nts n <note_name>\n";
 	std::cout << "Delete note:  nts d <note_id>\n";
 	std::cout << "Help:         nts h\n\n";
+	std::cout << "Get version:  nts v\n\n";
 
 	std::cout << "--- Additional info: ---\n";
 	std::cout << "You can set additional info like the editor command\n";

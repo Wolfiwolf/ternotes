@@ -14,6 +14,7 @@ enum class params_action {
 	DELETE,
 	HELP,
 	YANK,
+	VERSION,
 };
 
 struct params {
