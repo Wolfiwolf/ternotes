@@ -37,7 +37,9 @@ install: $(TARGET)
 
 	@sudo mv config.txt /etc/ternotes/
 
-	@echo "Terminal Notes installed!"
+	@echo ""
+	@echo "Terminal Notes installed! You can now edit the /etc/ternotes/config.txt to change the used editor and other settings."
+	@echo ""
 
 clean:
 	rm -rf $(BLD_DIR)
