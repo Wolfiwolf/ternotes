@@ -16,6 +16,7 @@ int actions_edit(const params &params, const conf_file &conf)
 	std::string path;
 	std::ifstream f;
 	int snote;
+	int ret;
 
 	notes_get_all(conf.notes_dir, &notes);
 
@@ -34,8 +35,11 @@ int actions_edit(const params &params, const conf_file &conf)
 	}
 	f.close();
 
+	ret = std::system((conf.editor_cmd + " " + path).c_str());
+	if (ret)
+		LOGE("Change the editor in /etc/ternotes/config.txt. Because " << conf.editor_cmd << " does not exist on this system.");
 
-	return std::system((conf.editor_cmd + " " + path).c_str());
+	return ret;
 }
 
 } // namespace tn
