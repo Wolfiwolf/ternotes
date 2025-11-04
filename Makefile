@@ -32,7 +32,7 @@ install: $(TARGET)
 	@echo "# Only 1 space should be between ':' and value and" >> config.txt
 	@echo "# no spaces after value (I'm lazy with parsing -_O_-)" >> config.txt
 	@echo "" >> config.txt
-	@echo "EDITOR_CMD: nvim" >> config.txt
+	@echo "EDITOR_CMD: vim" >> config.txt
 	@echo "NOTES_DIR: /home/$(USER)/.ternotes/notes" >> config.txt
 
 	@sudo mv config.txt /etc/ternotes/
