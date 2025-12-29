@@ -11,7 +11,7 @@ pub fn _edit(note_id: i32) -> Result<(), Box<dyn std::error::Error>> {
     let conf = config::get()?;
 
     let task = std::process::Command::new(&conf.editor_cmd)
-        .arg(&notes[0].path)
+        .arg(&notes[note_id as usize].path)
         .spawn();
 
     if task.is_ok() {
